@@ -44,11 +44,11 @@ help_text.insert("1.0","A játék célja, hogy legyőzd a számítógépet Kő, 
                       "- A papír legyőzi a Követ\n"
                       "- Az olló legyőzi a papírt!\n")
 
-help_text.image_create(END, image=photo1)  # Kő képe
+help_text.image_create(END, image=photo1)  
 help_text.insert(END, "  (Kő) \n")
-help_text.image_create(END, image=photo2)  # Papír képe
+help_text.image_create(END, image=photo2)  
 help_text.insert(END, "  (Papír) \n")
-help_text.image_create(END, image=photo3)  # Olló képe
+help_text.image_create(END, image=photo3)  
 help_text.insert(END, "  (Olló) \n")
 
 help_text.photo1 = photo1
@@ -56,7 +56,7 @@ help_text.photo2 = photo2
 help_text.photo3 = photo3
 
 
-help_text.config(state=DISABLED)  # Csak olvashatóvá tesszük
+help_text.config(state=DISABLED)  # Csak olvasható
 
 
 
@@ -116,9 +116,8 @@ def klikk(jatekos_valasztas):
 
 
     valaszt = ["Kő", "Papír", "Olló"]  # 1: kő, 2: papír, 3: olló
-    gpu_valasztas = random.choice(valaszt)  # Gép véletlen választása
+    gpu_valasztas = random.choice(valaszt)  # A Gép véletlen választása
 
-    # Ki nyert?
     if jatekos_valasztas == gpu_valasztas:
         eredmeny = "Döntetlen!"
     elif (jatekos_valasztas == "Kő" and gpu_valasztas == "Olló") or \
@@ -130,11 +129,11 @@ def klikk(jatekos_valasztas):
         comp += 1
         eredmeny = "Vesztettél!"
 
-    # Frissítjük a pontszámokat
+    # pontszámok frissitése
     comp_scoore.set(f"Gép: {comp}")
     usr_scoore.set(f"Játékos: {user}")
 
-    # Kiírjuk az eredményt egy üzenetablakba
+    # eredmény
     msg.showinfo("Eredmény", f"Te: {jatekos_valasztas}, Gép: {gpu_valasztas}\n{eredmeny}")
     
 
